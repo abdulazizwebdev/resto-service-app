@@ -13,6 +13,8 @@
         font-size: 22px;
         margin-bottom: 20px;
         text-align: center;
+        color: #000000;
+        text-decoration: none;
     }
     &__img {
         width: calc(100% + 40px);
@@ -25,6 +27,7 @@
         font-size: 18px;
         font-weight: 300;
         margin-bottom: 10px;
+        
         span {
             font-weight: 700;
         }
