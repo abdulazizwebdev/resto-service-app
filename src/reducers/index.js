@@ -66,7 +66,7 @@ const reducer = (state = initialState, action) => {
                 totalPrice: state.totalPrice + newItem.price
             }
             
-        case 'ITEM_REMOVE_FROM_CART':
+        case 'ITEM_REMOVE_FROM_LIST':
             const idx = action.payload;
             const itemIndex = state.items.findIndex(item => item.id === idx);
             const price = state.items[itemIndex]['price'] * state.items[itemIndex]['pcs'];
@@ -77,7 +77,20 @@ const reducer = (state = initialState, action) => {
                     ...state.items.slice(itemIndex + 1)
                 ],
                 totalPrice: state.totalPrice - price
-            } 
+            }
+            
+        case 'ITEM_REMOVE_FROM_CART':
+            const indx = action.payload;
+            const itemId = state.items.findIndex(item => item.id === indx);
+            const prc = state.items[itemId]['price'];
+            return {
+                ...state,
+                items: [
+                    ...state.items.slice(0, itemId),
+                    ...state.items.slice(itemId)
+                ],
+                totalPrice: state.totalPrice - prc
+            }
         default:
             return state;
     }

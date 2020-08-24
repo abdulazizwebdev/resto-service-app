@@ -24,7 +24,14 @@ const addedToCart = (id) => {
     }
 }
 
-const deleteFromCart = (id) => {
+const deleteFromList = (id) => {
+    return {
+        type: 'ITEM_REMOVE_FROM_LIST',
+        payload: id
+    }
+}
+
+const deleteItemFromCart = (id) => {
     return {
         type: 'ITEM_REMOVE_FROM_CART',
         payload: id
@@ -36,5 +43,6 @@ export {
     menuRequested,
     menuError,
     addedToCart,
-    deleteFromCart
+    deleteFromList,
+    deleteItemFromCart
 };

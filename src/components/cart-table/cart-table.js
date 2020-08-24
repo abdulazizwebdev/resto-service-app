@@ -1,14 +1,15 @@
 import React from 'react';
 import './cart-table.scss';
 import {connect} from 'react-redux';
-import {deleteFromCart} from '../../actions';
+import {deleteFromList, addedToCart, deleteItemFromCart} from '../../actions';
 
-const CartTable = ({items, deleteFromCart}) => {
+const CartTable = ({items, deleteFromList, addedToCart, deleteItemFromCart}) => {
     if (items.length === 0) {
         return (
             <div className="cart__title"> Ваша корзина пуста :( </div>
         )
     }
+   
     return (
         <>
             <div className="cart__title">Ваш заказ:</div>
@@ -22,12 +23,12 @@ const CartTable = ({items, deleteFromCart}) => {
                                 <div className="cart__item-title">{title}</div>
                                 <div className="cart__item-price">{price}$ x {pcs}</div>
                                 <div className="cart__item-button">
-                                    <button className="btn btn__add">Add</button>
+                                    <button onClick={() => addedToCart(item.id)} className="btn btn__add">+</button>
                                 </div>
                                 <div className="cart__item-button">
-                                    <button className="btn btn__remove">Remove</button>
+                                    <button onClick={() => deleteItemFromCart(item.id)} className="btn btn__remove">-</button>
                                 </div>
-                                <div className="cart__close" onClick={() => deleteFromCart(id)}>&times;</div>
+                                <div className="cart__close" onClick={() => deleteFromList(id)}>&times;</div>
                             </div>
                         )
                     })
@@ -44,7 +45,9 @@ const mapStateToProps = ({items}) => {
 }
 
 const mapDispatchToProps = {
-    deleteFromCart
+    deleteFromList,
+    addedToCart,
+    deleteItemFromCart
 }
 
 
