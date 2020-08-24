@@ -22,7 +22,7 @@
         background-color: rgba(0,0,0,.7);
         box-shadow: 0 0 20px rgba(256,256,256, .1);
         &-title, &-price  {
-            width: 250px;
+            width: 230px;
             text-align: center;
             color: #fff;
             font-size: 24px;
@@ -31,6 +31,10 @@
             height: 125px;
             width: 250px;
             object-fit: cover;
+        }
+        &-button {
+            display: flex;
+            justify-content: space-between;
         }
     }
     &__close {
@@ -45,5 +49,40 @@
         border-radius: 100%;
         border: 1px solid #fff;
         cursor: pointer;
+    }
+}
+
+.btn {
+    overflow: visible;
+    text-transform: none;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    cursor: pointer;
+    margin-right: 10px;
+    &__add {
+        color: #28a745;
+        border-color: #28a745;
+        &:hover {
+            color: #fff;
+            background-color: #28a745;
+        }
+    }
+    &__remove {
+        &:hover {
+            background-color: #dc3545;;
+            color: #fff;
+        }
+        color: #dc3545;
+        border-color: #dc3545;
     }
 }
